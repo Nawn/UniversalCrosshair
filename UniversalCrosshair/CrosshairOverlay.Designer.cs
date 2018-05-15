@@ -38,6 +38,7 @@
             this.Name = "CrosshairOverlay";
             this.Text = "CrosshairOverlay";
             this.Load += new System.EventHandler(this.CrosshairOverlay_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.CrosshairOverlay_Paint);
             this.ResumeLayout(false);
 
         }
