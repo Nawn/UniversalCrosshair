@@ -29,19 +29,9 @@ namespace UniversalCrosshair
 
             foreach (var item in localAll)
             {
-                bool shouldAdd = true;
-                string processName = item.ProcessName;
-                foreach (string process in undesired)
+                if (!String.IsNullOrEmpty(item.MainWindowTitle))
                 {
-                    if (process == processName)
-                    {
-                        shouldAdd = false;
-                    }
-                }
-                
-                if (shouldAdd)
-                {
-                    processSelector.Items.Add(processName);
+                    processSelector.Items.Add(item.MainWindowTitle);
                 }
             }
         }
