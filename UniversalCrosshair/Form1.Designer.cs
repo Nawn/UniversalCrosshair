@@ -154,20 +154,20 @@
             // 
             // button2
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Location = new System.Drawing.Point(21, 12);
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Location = new System.Drawing.Point(3, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(116, 25);
+            this.button2.Size = new System.Drawing.Size(152, 44);
             this.button2.TabIndex = 0;
             this.button2.Text = "Enable";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.Location = new System.Drawing.Point(179, 12);
+            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button3.Location = new System.Drawing.Point(161, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(116, 25);
+            this.button3.Size = new System.Drawing.Size(152, 44);
             this.button3.TabIndex = 1;
             this.button3.Text = "Disable";
             this.button3.UseVisualStyleBackColor = true;
