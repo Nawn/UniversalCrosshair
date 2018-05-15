@@ -13,12 +13,12 @@ namespace UniversalCrosshair
 {
     public partial class CrosshairOverlay : Form
     {
-
         [DllImport("user32.dll")]
         static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
         [DllImport("user32.dll", SetLastError = true)]
-        static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+        static extern int GetWindowLong(IntPtr hWnd, int nIndex);        
+
 
         public CrosshairOverlay()
         {
@@ -27,10 +27,13 @@ namespace UniversalCrosshair
 
         private void CrosshairOverlay_Load(object sender, EventArgs e)
         {
+            // Making it transparent
             this.BackColor = Color.Wheat;
             this.TransparencyKey = Color.Wheat;
             this.TopMost = true;
 
+
+            // Making it unclickable
             int initialStyle = GetWindowLong(this.Handle, -20);
             SetWindowLong(this.Handle, -20, initialStyle | 0x80000 | 0x20);
         }
