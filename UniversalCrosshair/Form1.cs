@@ -53,7 +53,7 @@ namespace UniversalCrosshair
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            // If they've chosen a process
             if (processSelector.SelectedIndex > -1)
             {
                 // Something has been chosen
@@ -62,9 +62,52 @@ namespace UniversalCrosshair
 
 
                 overlayForm.Show();
+
+                // Reposition and Resize
                 overlayForm.Size = new Size(_rect.right - _rect.left, _rect.bottom - _rect.top);
                 overlayForm.Top = _rect.top;
                 overlayForm.Left = _rect.left;
+
+                Pen newBrush;
+
+                // If they've chosen a brush color
+                if (crosshairColor.SelectedIndex > -1)
+                {
+                    var chosenColor = crosshairColor.SelectedItem.ToString();
+                    switch (chosenColor)
+                    {
+                        case "Red":
+                            newBrush = new Pen(Color.Red);
+                            break;
+                        case "Blue":
+                            newBrush = new Pen(Color.Blue);
+                            break;
+                        case "Green":
+                            newBrush = new Pen(Color.Green);
+                            break;
+                        case "Yellow":
+                            newBrush = new Pen(Color.Yellow);
+                            break;
+                        default:
+                            newBrush = new Pen(Color.Red);
+                            break;
+                    }
+                }
+                else
+                {
+                    newBrush = new Pen(Color.Red);
+                }
+
+                // Draw on the overlay
+                Graphics formGraphics;
+
+                formGraphics = overlayForm.CreateGraphics();
+
+                var centerHeight = overlayForm.Size.Height / 2.0f;
+                var centerWidth = overlayForm.Size.Width / 2.0f;
+
+                formGraphics.DrawLine(newBrush, centerWidth, centerHeight - 10, centerWidth, centerHeight + 10);
+                formGraphics.DrawLine(newBrush, centerWidth - 10, centerHeight, centerWidth + 10, centerHeight);
             }
             else
             {

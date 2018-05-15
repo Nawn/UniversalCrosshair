@@ -14,9 +14,6 @@ namespace UniversalCrosshair
     public partial class CrosshairOverlay : Form
     {
 
-        Graphics g;
-        Pen myPen = new Pen(Color.Red);
-
         [DllImport("user32.dll")]
         static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
@@ -35,6 +32,7 @@ namespace UniversalCrosshair
             this.BackColor = Color.Wheat;
             this.TransparencyKey = Color.Wheat;
             this.TopMost = true;
+            this.FormBorderStyle = FormBorderStyle.None;
 
 
             // Making it unclickable
@@ -44,14 +42,7 @@ namespace UniversalCrosshair
 
         private void CrosshairOverlay_Paint(object sender, PaintEventArgs e)
         {
-            g = e.Graphics;
 
-            var centerHeight = this.Size.Height / 2.0f;
-            var centerWidth = this.Size.Width / 2.0f;
-
-            g.DrawLine(myPen, centerWidth, centerHeight - 10, centerWidth, centerHeight + 10);
-            g.DrawLine(myPen, centerWidth - 10, centerHeight, centerWidth + 10, centerHeight);
-            
         }
     }
 }
